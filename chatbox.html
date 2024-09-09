@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sow Easy - Chatbox</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        height: 100%;
+        font-family: "Poppins", sans-serif;
+        background-color: #e6f3e6;
+        color: #3a5311;
+      }
+      .container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        max-width: 1200px;
+        margin: auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar {
+        width: 300px;
+        background-color: #f2d13d;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 2px solid #e6e6e6;
+        padding: 20px;
+        transition: background-color 0.3s ease;
+      }
+      .sidebar:hover {
+        background-color: #e0c235;
+      }
+      .chat-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+      .chat-list li {
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .chat-list li:hover {
+        background-color: #ffe08a;
+        transform: scale(1.05);
+      }
+
+      .chat-window {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #ffffff;
+      }
+
+      .chat-header {
+        background-color: #f2d13d;
+        padding: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #3a5311;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-messages {
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #f9f9f9;
+      }
+      .message {
+        max-width: 75%;
+        padding: 12px;
+        border-radius: 12px;
+        font-size: 1rem;
+        line-height: 1.4;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .message.received {
+        background-color: #fff;
+        align-self: flex-start;
+      }
+      .message.sent {
+        background-color: #dcf8c6;
+        align-self: flex-end;
+      }
+      .message:hover {
+        transform: scale(1.02);
+      }
+
+      .chat-input {
+        display: flex;
+        padding: 20px;
+        background-color: #f2d13d;
+        border-top: 2px solid #e6e6e6;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .chat-input input {
+        flex-grow: 1;
+        padding: 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+      .chat-input input:focus {
+        border-color: #3a5311;
+      }
+      .chat-input button {
+        background-color: #3a5311;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .chat-input button:hover {
+        background-color: #2d3e0c;
+        transform: translateY(-3px);
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: #e6f3e6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #3a5311;
+        border-radius: 4px;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100px;
+        }
+        .chat-header {
+          font-size: 1.2rem;
+        }
+        .chat-input button {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <ul class="chat-list">
+          <li>Farmer Gaurav</li>
+          <li>Buyer Ankika</li>
+          <li>Farmer Lokesh</li>
+        </ul>
+      </div>
+      <div class="chat-window">
+        <div class="chat-header">Chat with Ramesh</div>
+        <div class="chat-messages">
+          <div class="message received">
+            Hello! I have some fresh tomatoes available.
+          </div>
+          <div class="message sent">Great! How many kilos do you have?</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Type a message..." />
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
